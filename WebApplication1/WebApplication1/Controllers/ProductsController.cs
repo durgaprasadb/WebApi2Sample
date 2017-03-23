@@ -62,38 +62,38 @@ namespace WebApplication1.Controllers
         //    { "ItemName": "Laptop", "Quantity": 30, "UnitPrice": 80000 },
         //    { "ItemName": "Router", "Quantity": 50, "UnitPrice": 5000 }
         //];
-        public IHttpActionResult Post(JObject objData)
-        {
-            List<ItemDetails> lstItemDetails = new List<ItemDetails>();
+        //public IHttpActionResult Post(JObject objData)
+        //{
+        //    List<ItemDetails> lstItemDetails = new List<ItemDetails>();
 
-            //1. The received data to the post method is stored in the dynamic object.
-            dynamic jsonData = objData;
+        //    //1. The received data to the post method is stored in the dynamic object.
+        //    dynamic jsonData = objData;
 
-            //2. We are reading the order key data from the posted data in the JObject object.
-            JObject orderJson = jsonData.order;
+        //    //2. We are reading the order key data from the posted data in the JObject object.
+        //    JObject orderJson = jsonData.order;
 
-            //3. The itemDetails received from the request will be stored in JArray - this is the JSON array.
-            JArray itemDetailsJson = jsonData.itemDetails;
+        //    //3. The itemDetails received from the request will be stored in JArray - this is the JSON array.
+        //    JArray itemDetailsJson = jsonData.itemDetails;
 
-            //4. The received order data is deserialized in the Order object.
-            var Order = orderJson.ToObject<Order>();
+        //    //4. The received order data is deserialized in the Order object.
+        //    var Order = orderJson.ToObject<Order>();
 
-            //5. The itemDetails are deserialized into the List of ItemDetails object.
-            foreach (var item in itemDetailsJson)
-            {
-                lstItemDetails.Add(item.ToObject<ItemDetails>());
-            }
+        //    //5. The itemDetails are deserialized into the List of ItemDetails object.
+        //    foreach (var item in itemDetailsJson)
+        //    {
+        //        lstItemDetails.Add(item.ToObject<ItemDetails>());
+        //    }
 
-            //7.
-            foreach (ItemDetails itemDetail in lstItemDetails)
-            {
-                //ctx.ItemDetails.Add(itemDetail);
-            }
+        //    //7.
+        //    foreach (ItemDetails itemDetail in lstItemDetails)
+        //    {
+        //        //ctx.ItemDetails.Add(itemDetail);
+        //    }
 
-            //ctx.SaveChanges();
+        //    //ctx.SaveChanges();
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
         //http://www.dotnettricks.com/learn/webapi/passing-multiple-complex-type-parameters-to-aspnet-web-api
         //Method 1 : Using ArrayList

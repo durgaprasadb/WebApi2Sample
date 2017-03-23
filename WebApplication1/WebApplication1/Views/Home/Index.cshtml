@@ -28,42 +28,46 @@
 
 <input type="button" id="btn" value="Save" onclick="javascript:test();" />
 
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        function test() {
+@section CustomScripts {
 
-            alert('1');
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-            //1.
-            var order = {
-                "CustomerName": "MS"
-            };
-            //2.
-            var itemDetails = [
-                { "ItemName": "Desktop", "Quantity": 10, "UnitPrice": 45000 },
-                { "ItemName": "Laptop", "Quantity": 30, "UnitPrice": 80000 },
-                { "ItemName": "Router", "Quantity": 50, "UnitPrice": 5000 }
-            ];
-            //3.
-            $.ajax({
-                url: '/api/Products',
-                type: 'POST',
-                //4.
-                data: {
-                    order: order,
-                    itemDetails: itemDetails
-                },
-                ContentType: 'application/json;utf-8',
-                datatype: 'json'
-            }).done(function (resp) {
-                alert("Successful " + resp);
-            }).error(function (err) {
-                alert("Error " + err.status);
+            test();
 
-            });
-        }
+            function test() {
 
-    });
+                //1.
+                var order = {
+                    "CustomerName": "MS"
+                };
+                //2.
+                var itemDetails = [
+                    { "ItemName": "Desktop", "Quantity": 10, "UnitPrice": 45000 },
+                    { "ItemName": "Laptop", "Quantity": 30, "UnitPrice": 80000 },
+                    { "ItemName": "Router", "Quantity": 50, "UnitPrice": 5000 }
+                ];
+                //3.
+                $.ajax({
+                    url: '/api/Products',
+                    type: 'POST',
+                    //4.
+                    data: {
+                        order: order,
+                        itemDetails: itemDetails
+                    },
+                    ContentType: 'application/json;utf-8',
+                    datatype: 'json'
+                }).done(function (resp) {
+                    alert("Successful " + resp);
+                }).error(function (err) {
+                    alert("Error " + err.status);
 
-</script>
+                });
+            }
+
+        });
+
+    </script>
+}
